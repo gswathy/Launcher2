@@ -1164,6 +1164,8 @@ public final class Launcher extends Activity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_ADD:
+		 		mMenuAddInfo = mWorkspace.findAllVacantCells(null);
+            	if(mMenuAddInfo != null && mMenuAddInfo.valid)
                 addItems();
                 return true;
             case MENU_MANAGE_APPS:
@@ -1976,6 +1978,10 @@ public final class Launcher extends Activity
     void closeAllApps(boolean animated) {
         if (mAllAppsGrid.isVisible()) {
             mWorkspace.setVisibility(View.VISIBLE);
+            if(!animated)
+            {
+             closeFolder();
+            }
             mAllAppsGrid.zoom(0.0f, animated);
             ((View)mAllAppsGrid).setFocusable(false);
             mWorkspace.getChildAt(mWorkspace.getCurrentScreen()).requestFocus();
