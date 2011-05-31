@@ -79,14 +79,13 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import java.util.List;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.android.launcher.R;
 
@@ -587,8 +586,9 @@ public final class Launcher extends Activity
     @Override
     protected void onResume() {
         super.onResume();
+
         this.setRequestedOrientation(
-            Settings.System.getInt(this.getContentResolver(), "launcher_orientation", 0) == 0 ?
+            Settings.System.getInt(this.getContentResolver(), "accelerometer_rotation", 0) == 0 ?
                     ActivityInfo.SCREEN_ORIENTATION_NOSENSOR : ActivityInfo.SCREEN_ORIENTATION_USER);
         mPaused = false;
         if (mRestoring || mOnResumeNeedsLoad) {
