@@ -25,6 +25,10 @@
                     android:title="@string/preferences_interface_homescreen_general_search_title"
                     android:summary="@string/preferences_interface_homescreen_general_search_summary"
                     android:defaultValue="false" />
+                <CheckBoxPreference android:key="ui_homescreen_general_resize_any_widget"
+                    android:title="@string/preferences_interface_homescreen_general_resize_any_widget_title"
+                    android:summary="@string/preferences_interface_homescreen_general_resize_any_widget_summary"
+                    android:defaultValue="true" />
             </PreferenceCategory>
             <CheckBoxPreference android:key="ui_homescreen_scrolling_scroll_wallpaper"
                 android:title="@string/preferences_interface_homescreen_scrolling_scroll_wallpaper_title"

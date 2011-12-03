@@ -242,6 +242,7 @@ public class Workspace extends PagedView
     // Preferences
     private boolean mShowSearchBar;
     private boolean mScrollWallpaper;
+    private boolean mResizeAnyWidget;
 
     /**
      * Used to inflate the Workspace from XML.
@@ -317,6 +318,7 @@ public class Workspace extends PagedView
         // Preferences
         mShowSearchBar = PreferencesProvider.Interface.Homescreen.getShowSearchBar(context);
         mScrollWallpaper = PreferencesProvider.Interface.Homescreen.getScrollWallpaper(context);
+        mResizeAnyWidget = PreferencesProvider.Interface.Homescreen.getResizeAnyWidget(context);
 
         mLauncher = (Launcher) context;
         initWorkspace();
@@ -2295,7 +2297,7 @@ public class Workspace extends PagedView
 
                         final LauncherAppWidgetHostView hostView = (LauncherAppWidgetHostView) cell;
                         AppWidgetProviderInfo pinfo = hostView.getAppWidgetInfo();
-                        if (pinfo.resizeMode != AppWidgetProviderInfo.RESIZE_NONE) {
+                        if (pinfo.resizeMode != AppWidgetProviderInfo.RESIZE_NONE || mResizeAnyWidget) {
                             final Runnable resizeRunnable = new Runnable() {
                                 public void run() {
                                     DragLayer dragLayer = mLauncher.getDragLayer();
